@@ -9,5 +9,5 @@ grant {
 grant Principal javax.security.auth.kerberos.KerberosPrincipal "alice@CS.UWM.EDU" {
 	permission java.util.PropertyPermission "java.home", "read";
 	permission java.util.PropertyPermission "user.home", "read";
-	permission java.io.FilePermission "src/lecture13/secret.txt", "read";
+	permission java.io.FilePermission "src/homework13/secret.txt", "read";
 };

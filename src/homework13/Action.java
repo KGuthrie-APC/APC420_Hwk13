@@ -33,8 +33,9 @@ public class Action implements PrivilegedAction<Object> {
 
 		System.out.println("\nYour user.home property value is: " + System.getProperty("user.home"));
 
-		File f = new File("src/lecture13/secret.txt");
-
+//		File f = new File("src/lecture13/secret.txt");
+		File f = new File("src/homework13/secret.txt");
+		
 		System.out.printf("\nsecret.txt does %s exist in the current working directory.\n", f.exists() ? "" : "not");
 
 		if(f.exists()) {
@@ -45,7 +46,8 @@ public class Action implements PrivilegedAction<Object> {
 			}
 		}
 
-		try(PrintWriter w = new PrintWriter(new File("src/lecture13/topsecret.txt"))) {
+//		try(PrintWriter w = new PrintWriter(new File("src/lecture13/topsecret.txt"))) {
+		try(PrintWriter w = new PrintWriter(new File("src/homework13/topsecret.txt"))) {	
 			w.println("Access control is fun!");
 		}  
 		catch (FileNotFoundException e) {
