@@ -53,21 +53,30 @@ public class Authorization {
 			System.err.println("Authentaction Failed. " + e.getMessage());
 			System.exit(-1);
 		}
+    	
+    	
 		Subject sub = lc.getSubject();
-
-		System.out.println("Principals [" + sub.getPrincipals().iterator().next()+ "] have logged in");
 		
-		try {
-			lc.logout();
-		} catch (LoginException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        System.out.println("Authentication succeeded!");
+		
 
         // 3. now try to execute the Action on behalf of the authenticated Subject
 	
 	// TODO
+        PrivilegedAction<Object> action = new Action();
+		try {
+		Subject.doAsPrivileged(sub, action, null);
+		} catch (SecurityException e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		
+		
+		try {
+			lc.logout();
+		} catch (LoginException e) {
+			e.printStackTrace();
+		}
+        System.out.println("Authentication succeeded!");
 
     }
 }
