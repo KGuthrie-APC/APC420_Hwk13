@@ -1,0 +1,13 @@
+/* Access Control Policy for Authorization class */
+grant {
+	permission javax.security.auth.AuthPermission "createLoginContext.kerberos";
+	permission javax.security.auth.AuthPermission "doAsPrivileged";
+	permission java.util.PropertyPermission "*", "write";
+};
+
+/* Access Control Policy for Principals */
+grant Principal javax.security.auth.kerberos.KerberosPrincipal "alice@CS.UWM.EDU" {
+	permission java.util.PropertyPermission "java.home", "read";
+	permission java.util.PropertyPermission "user.home", "read";
+	permission java.io.FilePermission "src/lecture13/secret.txt", "read";
+};
